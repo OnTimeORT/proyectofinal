@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "560837455555-gjb3pfg279l5iic3h9vbe4oneg4jeupd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ontime.app",
+            "certificate_hash": "87a1853682e797504c4aed8830cbbad6e824a804"
+          }
+        },
+        {
+          "client_id": "560837455555-i9hge3cr43oal37s2mtifa02cf52am7n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ontime.app",
+            "certificate_hash": "2b43ea2c1b337c6ab9f07ff49cc9bfd28a847eca"
+          }
+        },
+        {
           "client_id": "560837455555-tjkbffhqspfastjp5tvmcukhs0k4a829.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

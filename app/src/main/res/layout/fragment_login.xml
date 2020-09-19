@@ -8,14 +8,15 @@
     tools:context=".fragments.LoginFragment">
 
     <TextView
+        android:id="@+id/tvIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tvEmail"
         android:text="Ingresar"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_marginTop="60dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvEmail"
@@ -25,10 +26,10 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:hint="Email"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIngresar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="60dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editEmail"
@@ -78,13 +79,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btnLoginFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnGoToRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook"
         android:text="Registrarse"
         android:textSize="14sp"
         style="@style/Widget.MaterialComponents.Button.TextButton"
