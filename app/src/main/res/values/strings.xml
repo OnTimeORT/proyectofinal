@@ -3,4 +3,12 @@
     <string name="facebook_app_id">3273631892673214</string>
     <string name="fb_login_protocol_scheme">fb3273631892673214</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnGoToRegister">Registrarse</string>
+    <string name="btnLogin">Ingresar</string>
+    <string name="tvPassword">Contraseña</string>
+    <string name="tvEmail">Email</string>
+    <string name="tvIngresar">Ingresar</string>
+    <string name="btnLoginGoogle">Usar Google</string>
+    <string name="btnLoginFacebook">Usar Facebook</string>
+    <string name="btnGoToLogin">Ya tengo cuenta</string>
 </resources>

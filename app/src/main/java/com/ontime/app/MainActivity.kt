@@ -96,6 +96,12 @@ class MainActivity : AppCompatActivity() {
             .commitNow()
     }
 
+    fun goToLogin() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, LoginFragment.newInstance())
+            .commitNow()
+    }
+
     fun loginGoogle() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))

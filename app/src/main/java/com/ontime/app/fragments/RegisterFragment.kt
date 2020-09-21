@@ -8,7 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.ontime.app.MainActivity
 import com.ontime.app.R
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_register.*
+import kotlinx.android.synthetic.main.fragment_register.editEmail
+import kotlinx.android.synthetic.main.fragment_register.editPassword
 
 class RegisterFragment : Fragment() {
 
@@ -37,6 +40,10 @@ class RegisterFragment : Fragment() {
             } else {
                 Toast.makeText(activity, "Input required", Toast.LENGTH_LONG).show()
             }
+        }
+
+        btnGoToLogin.setOnClickListener {
+            (activity as MainActivity).goToLogin()
         }
     }
 

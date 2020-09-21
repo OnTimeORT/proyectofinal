@@ -44,6 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:hint="Contraseña"
@@ -61,12 +62,25 @@
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:text="Registrarse"
-        android:textColor="@color/design_default_color_on_primary"
+        android:text="@string/btnGoToRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPassword"
-        android:layout_margin="30dp" />
+        android:padding="14dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGoToLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        android:text="@string/btnGoToLogin"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

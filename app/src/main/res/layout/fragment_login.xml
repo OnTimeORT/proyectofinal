@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Ingresar"
+        android:text="@string/tvIngresar"
         android:textSize="20sp"
         android:layout_marginTop="60dp" />
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:hint="Email"
+        android:hint="@string/tvEmail"
         app:layout_constraintTop_toBottomOf="@+id/tvIngresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,9 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:hint="Contraseña"
+        android:hint="@string/tvPassword"
         app:endIconMode="password_toggle"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -62,42 +63,46 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:text="Ingresar"
-        android:textColor="@color/design_default_color_on_primary"
+        android:text="@string/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPassword"
-        android:layout_margin="30dp" />
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/btnLoginGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/btnLoginFacebook"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle" />
+        android:padding="14dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnGoToRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook"
-        android:text="Registrarse"
-        android:textSize="14sp"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_margin="30dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        android:text="@string/btnGoToRegister"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" />
+
+    <Button
+        android:id="@+id/btnLoginGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="@string/btnLoginGoogle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoToRegister" />
+
+    <Button
+        android:id="@+id/btnLoginFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/btnLoginFacebook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
