@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import com.ontime.app.MainActivity
 import com.ontime.app.R
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 
 class LoginFragment : Fragment() {
 
@@ -23,11 +25,18 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
+
+        view.btnGoToRegister.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
+        return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         btnLogin.setOnClickListener {
             if (editEmail.text?.trim().toString().isNotEmpty() || editPassword.text?.trim()
@@ -44,10 +53,6 @@ class LoginFragment : Fragment() {
 
         btnLoginGoogle.setOnClickListener {
             (activity as MainActivity).loginGoogle()
-        }
-
-        btnGoToRegister.setOnClickListener {
-            (activity as MainActivity).goToRegister()
         }
 
         btnLoginFacebook.setOnClickListener {

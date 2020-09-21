@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import com.ontime.app.MainActivity
 import com.ontime.app.R
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_register.*
 import kotlinx.android.synthetic.main.fragment_register.editEmail
 import kotlinx.android.synthetic.main.fragment_register.editPassword
+import kotlinx.android.synthetic.main.fragment_register.view.*
 
 class RegisterFragment : Fragment() {
 
@@ -23,11 +24,17 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        val view = inflater.inflate(R.layout.fragment_register, container, false)
+        view.btnGoToLogin.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_registerFragment_to_loginFragment)
+        }
+
+        return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         btnRegister.setOnClickListener {
             if (editEmail.text.trim().toString().isNotEmpty() || editPassword.text.trim().toString()
@@ -40,10 +47,6 @@ class RegisterFragment : Fragment() {
             } else {
                 Toast.makeText(activity, "Input required", Toast.LENGTH_LONG).show()
             }
-        }
-
-        btnGoToLogin.setOnClickListener {
-            (activity as MainActivity).goToLogin()
         }
     }
 

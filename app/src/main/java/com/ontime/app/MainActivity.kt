@@ -15,8 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.*
-import com.ontime.app.fragments.LoginFragment
-import com.ontime.app.fragments.RegisterFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,12 +26,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance()
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, LoginFragment.newInstance())
-                .commitNow()
-        }
 
     }
 
@@ -88,18 +80,6 @@ class MainActivity : AppCompatActivity() {
                     ).show()
                 }
             }
-    }
-
-    fun goToRegister() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, RegisterFragment.newInstance())
-            .commitNow()
-    }
-
-    fun goToLogin() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, LoginFragment.newInstance())
-            .commitNow()
     }
 
     fun loginGoogle() {
