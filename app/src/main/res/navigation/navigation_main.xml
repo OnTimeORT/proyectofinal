@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_userMainFragment"
             app:destination="@id/userMainFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_commerceMainFragment"
+            app:destination="@id/commerceMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -217,5 +220,104 @@
         <action
             android:id="@+id/action_userRateStoreFragment_to_userMainFragment"
             app:destination="@id/userMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceMainFragment"
+        android:name="com.ontime.app.commerceMainFragment"
+        android:label="commerce_main_fragment"
+        tools:layout="@layout/commerce_main_fragment" >
+        <action
+            android:id="@+id/action_commerceMainFragment_to_commerceMyRowsFragments"
+            app:destination="@id/commerceMyRowsFragments" />
+        <action
+            android:id="@+id/action_commerceMainFragment_to_commerceMyClientsFragment"
+            app:destination="@id/commerceMyClientsFragment" />
+        <action
+            android:id="@+id/action_commerceMainFragment_to_userScanQRFragment"
+            app:destination="@id/userScanQRFragment" />
+        <action
+            android:id="@+id/action_commerceMainFragment_to_commerceAddClientToRowFragment"
+            app:destination="@id/commerceAddClientToRowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceAddRowFragment"
+        android:name="com.ontime.app.commerceAddRowFragment"
+        android:label="commerce_add_row_fragment"
+        tools:layout="@layout/commerce_add_row_fragment" >
+        <action
+            android:id="@+id/action_commerceAddRowFragment_to_commerceScheduleRowFragment"
+            app:destination="@id/commerceScheduleRowFragment" />
+        <action
+            android:id="@+id/action_commerceAddRowFragment_to_commerceScheduleRowPermanent"
+            app:destination="@id/commerceScheduleRowPermanent" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceMyClientsFragment"
+        android:name="com.ontime.app.commerceMyClientsFragment"
+        android:label="commerce_my_clients_fragment"
+        tools:layout="@layout/commerce_my_clients_fragment" />
+    <fragment
+        android:id="@+id/commerceMyRowsFragments"
+        android:name="com.ontime.app.commerceMyRowsFragments"
+        android:label="commerce_my_rows_fragments_fragment"
+        tools:layout="@layout/commerce_my_rows_fragments_fragment" >
+        <action
+            android:id="@+id/action_commerceMyRowsFragments_to_commerceRowsActiveFragment"
+            app:destination="@id/commerceRowsActiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceScheduleRowFragment"
+        android:name="com.ontime.app.commerceScheduleRowFragment"
+        android:label="commerce_schedule_row_fragment"
+        tools:layout="@layout/commerce_schedule_row_fragment" >
+        <action
+            android:id="@+id/action_commerceScheduleRowFragment_to_commerceSetTimesRowFragment"
+            app:destination="@id/commerceSetTimesRowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceAddClientToRowFragment"
+        android:name="com.ontime.app.commerceAddClientToRowFragment"
+        android:label="commerce_add_client_to_row_fragment"
+        tools:layout="@layout/commerce_add_client_to_row_fragment" >
+        <action
+            android:id="@+id/action_commerceAddClientToRowFragment_to_commerceAddClientData"
+            app:destination="@id/commerceAddClientData" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceSetTimesRowFragment"
+        android:name="com.ontime.app.commerceSetTimesRowFragment"
+        android:label="commerce_set_times_row_fragment"
+        tools:layout="@layout/commerce_set_times_row_fragment" />
+    <fragment
+        android:id="@+id/commerceRowsActiveFragment"
+        android:name="com.ontime.app.commerceRowsActiveFragment"
+        android:label="commerce_rows_active_fragment"
+        tools:layout="@layout/commerce_rows_active_fragment" >
+        <action
+            android:id="@+id/action_commerceRowsActiveFragment_to_commerceAddRowFragment"
+            app:destination="@id/commerceAddRowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceScheduleRowPermanent"
+        android:name="com.ontime.app.commerceScheduleRowPermanent"
+        android:label="commerce_schedule_row_permanent_fragment"
+        tools:layout="@layout/commerce_schedule_row_permanent_fragment" />
+    <fragment
+        android:id="@+id/commerceAddClientOptionFragment"
+        android:name="com.ontime.app.commerceAddClientOptionFragment"
+        android:label="commerce_add_client_option_fragment"
+        tools:layout="@layout/commerce_add_client_option_fragment" >
+        <action
+            android:id="@+id/action_commerceAddClientOptionFragment_to_userBookingConfirmedFragment"
+            app:destination="@id/userBookingConfirmedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commerceAddClientData"
+        android:name="com.ontime.app.commerceAddClientData"
+        android:label="commerce_add_client_data_fragment"
+        tools:layout="@layout/commerce_add_client_data_fragment" >
+        <action
+            android:id="@+id/action_commerceAddClientData_to_commerceAddClientOptionFragment"
+            app:destination="@id/commerceAddClientOptionFragment" />
     </fragment>
 </navigation>
