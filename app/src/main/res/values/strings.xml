@@ -11,4 +11,5 @@
     <string name="btnLoginGoogle">Usar Google</string>
     <string name="btnLoginFacebook">Usar Facebook</string>
     <string name="btnGoToLogin">Ya tengo cuenta</string>
+    <string name="tvRegistrarUsuario">Registrar usuario</string>
 </resources>

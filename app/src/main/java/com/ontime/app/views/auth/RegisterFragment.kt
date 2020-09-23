@@ -11,10 +11,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseUser
 import com.ontime.app.R
-import kotlinx.android.synthetic.main.fragment_register.*
-import kotlinx.android.synthetic.main.fragment_register.editEmail
-import kotlinx.android.synthetic.main.fragment_register.editPassword
-import kotlinx.android.synthetic.main.fragment_register.view.*
+import kotlinx.android.synthetic.main.register_fragment.*
+import kotlinx.android.synthetic.main.register_fragment.editEmail
+import kotlinx.android.synthetic.main.register_fragment.editPassword
+import kotlinx.android.synthetic.main.register_fragment.view.*
 
 class RegisterFragment : Fragment() {
 
@@ -41,7 +41,7 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_register, container, false)
+        val view = inflater.inflate(R.layout.register_fragment, container, false)
         view.btnGoToLogin.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_registerFragment_to_loginFragment)

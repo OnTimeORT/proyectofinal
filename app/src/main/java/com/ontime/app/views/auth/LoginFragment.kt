@@ -22,8 +22,8 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseUser
 import com.ontime.app.MainActivity
 import com.ontime.app.R
-import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_login.view.*
+import kotlinx.android.synthetic.main.login_fragment.*
+import kotlinx.android.synthetic.main.login_fragment.view.*
 
 class LoginFragment : Fragment() {
 
@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        val view = inflater.inflate(R.layout.login_fragment, container, false)
 
         view.btnGoToRegister.setOnClickListener {
             Navigation.findNavController(view)

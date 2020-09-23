@@ -5,7 +5,7 @@
     android:id="@+id/register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.RegisterFragment">
+    tools:context=".views.auth.RegisterFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tvEmail"
-        android:text="Registrar usuario"
+        android:text="@string/tvRegistrarUsuario"
         android:textSize="20sp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:hint="Email"
+        android:hint="@string/tvEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <EditText
@@ -47,7 +47,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:hint="Contraseña"
+        android:hint="@string/tvPassword"
         app:endIconMode="password_toggle"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
