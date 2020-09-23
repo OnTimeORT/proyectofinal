@@ -280,8 +280,8 @@
         android:label="commerce_add_client_to_row_fragment"
         tools:layout="@layout/commerce_add_client_to_row_fragment" >
         <action
-            android:id="@+id/action_commerceAddClientToRowFragment_to_commerceAddClientData"
-            app:destination="@id/commerceAddClientData" />
+            android:id="@+id/action_commerceAddClientToRowFragment_to_commerceAddClientOptionFragment"
+            app:destination="@id/commerceAddClientOptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/commerceSetTimesRowFragment"
@@ -310,14 +310,5 @@
         <action
             android:id="@+id/action_commerceAddClientOptionFragment_to_userBookingConfirmedFragment"
             app:destination="@id/userBookingConfirmedFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/commerceAddClientData"
-        android:name="com.ontime.app.commerceAddClientData"
-        android:label="commerce_add_client_data_fragment"
-        tools:layout="@layout/commerce_add_client_data_fragment" >
-        <action
-            android:id="@+id/action_commerceAddClientData_to_commerceAddClientOptionFragment"
-            app:destination="@id/commerceAddClientOptionFragment" />
     </fragment>
 </navigation>
