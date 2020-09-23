@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ontime.app.R
+import com.ontime.app.viewmodels.selectProfileViewModel
 
 class selectProfileFragment : Fragment() {
 

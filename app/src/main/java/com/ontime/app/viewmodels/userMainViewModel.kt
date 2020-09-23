@@ -1,7 +1,7 @@
-package com.ontime.app.views
+package com.ontime.app.viewmodels
 
 import androidx.lifecycle.ViewModel
 
-class userFavoritesViewModel : ViewModel() {
+class userMainViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

@@ -1,4 +1,4 @@
-package com.ontime.app.views
+package com.ontime.app.viewmodels
 
 import androidx.lifecycle.ViewModel
 
