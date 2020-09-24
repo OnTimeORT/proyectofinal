@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@+id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_comerceRegisterFragment"
+            app:destination="@id/comerceRegisterFragment" />
     </fragment>
     <fragment
         android:id="@+id/selectProfileFragment"
@@ -320,4 +323,9 @@
             android:id="@+id/action_commerceAddClientData_to_commerceAddClientOptionFragment"
             app:destination="@+id/commerceAddClientOptionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/comerceRegisterFragment"
+        android:name="com.ontime.app.views.auth.comerceRegisterFragment"
+        android:label="comerce_register_fragment"
+        tools:layout="@layout/comerce_register_fragment" />
 </navigation>

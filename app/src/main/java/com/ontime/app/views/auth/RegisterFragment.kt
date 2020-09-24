@@ -61,6 +61,9 @@ class RegisterFragment : Fragment() {
                     editEmail.text.trim().toString(),
                     editPassword.text.trim().toString()
                 )
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_registerFragment_to_comerceRegisterFragment)
+
             } else {
                 Toast.makeText(activity, "Input required", Toast.LENGTH_LONG).show()
             }
