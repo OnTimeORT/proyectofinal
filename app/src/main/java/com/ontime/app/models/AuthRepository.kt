@@ -11,31 +11,22 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.ontime.app.preferences.PreferenceProvider
 
 
 class AuthRepository(var application: Application) {
     var userMutableLiveData: MutableLiveData<FirebaseUser> = MutableLiveData<FirebaseUser>()
     var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    private val pref: PreferenceProvider
-        get() {
-            TODO()
-        }
 
-    fun login(email: String, password: String) {
+
+    fun login(email: String, password: String) : FirebaseUser? {
+        var user : FirebaseUser? = null
+
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(application.mainExecutor) { task ->
                 if (task.isSuccessful) {
                     Log.d("Task message", "signInWithEmail:success")
-                    val user: FirebaseUser? = firebaseAuth.currentUser
+                    user = firebaseAuth.currentUser
                     userMutableLiveData.postValue(firebaseAuth.currentUser)
-
-                    user?.let {
-                    val name = user.displayName
-                    val email = user.email
-                        pref.login(name, email)
-                    }
-
 
                 } else {
                     Log.w("Task message", "signInWithEmail:failure", task.exception)
@@ -44,15 +35,18 @@ class AuthRepository(var application: Application) {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
             }
+        return user
     }
 
     fun register(email: String, password: String) {
+
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(application.mainExecutor) { task ->
                 if (task.isSuccessful) {
                     userMutableLiveData.postValue(firebaseAuth.currentUser)
-                    Log.e("Task message", "Successful")
+                    Log.e("Task message", "Successful" + firebaseAuth.currentUser)
                     Toast.makeText(
                         application.applicationContext, "Register successfull",
                         Toast.LENGTH_SHORT

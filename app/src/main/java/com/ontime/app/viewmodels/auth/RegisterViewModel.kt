@@ -9,7 +9,7 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     var authRepository: AuthRepository = AuthRepository(application)
     var userMutableLiveData: MutableLiveData<FirebaseUser> = authRepository.userMutableLiveData
 
-    fun register(email: String, password: String) {
-        authRepository.register(email, password)
+    fun register(email: String, password: String){
+       return authRepository.register(email, password)
     }
 }
