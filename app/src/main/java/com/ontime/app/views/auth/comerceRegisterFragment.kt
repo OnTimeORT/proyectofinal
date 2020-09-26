@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseUser
@@ -21,10 +22,11 @@ class comerceRegisterFragment : Fragment() {
 
     private lateinit var comerceRegisterViewModel: ComerceRegisterViewModel
     lateinit var v : View
-    lateinit var email_text : TextView
-    lateinit var name_text : TextView
-    private val PREF_NAME = "myPreferences"
-    var user : FirebaseUser? = null
+    lateinit var emailText : EditText
+    lateinit var nameText : EditText
+    lateinit var phoneText : EditText
+    lateinit var cuitText : EditText
+    private val prefName = "myPreferences"
 
     companion object {
         fun newInstance() = comerceRegisterFragment()
@@ -34,25 +36,42 @@ class comerceRegisterFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         comerceRegisterViewModel = ViewModelProviders.of(this).get(ComerceRegisterViewModel::class.java)
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         v = inflater.inflate(R.layout.comerce_register_fragment, container, false)
-        name_text = v.findViewById(R.id.name_text)
-        email_text = v.findViewById(R.id.email_text)
+        nameText = v.findViewById(R.id.nameEditText)
+        emailText = v.findViewById(R.id.emailEditText)
+        phoneText = v.findViewById(R.id.phoneEditText)
+        cuitText = v.findViewById(R.id.cuitEditText)
+
+        val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
+        Log.d("Este es el mail", sharedPref.getString("EMAIL","").toString())
+        Toast.makeText(activity, sharedPref.getString("NAME","").toString(), Toast.LENGTH_LONG).show()
+
+        if(sharedPref.getString("NAME","")!="") {
+            nameText.setText(sharedPref.getString("NAME", ""))
+        }
+        if(sharedPref.getString("EMAIL","")!="") {
+            emailText.setText(sharedPref.getString("EMAIL", ""))
+        }
+
         return v
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sharedPref: SharedPreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-        Log.d("Este es el mail", sharedPref.getString("EMAIL","nada").toString())
-        Toast.makeText(activity, sharedPref.getString("NAME","nada").toString(), Toast.LENGTH_LONG).show()
-        email_text.text = sharedPref.getString("NAME","nada")
-        name_text.text = sharedPref.getString("EMAIL","nada")
+        btnCompleteRegister.setOnClickListener {
+            if (nameText.text.trim().toString().isNotEmpty() || phoneText.text.trim().toString().isNotEmpty()
+                || cuitText.text.trim().toString().isNotEmpty()) {
+
+            }
+
+        }
     }
 
 

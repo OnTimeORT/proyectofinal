@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseUser
 import com.ontime.app.R
@@ -19,13 +20,15 @@ import kotlinx.android.synthetic.main.register_fragment.*
 import kotlinx.android.synthetic.main.register_fragment.editEmail
 import kotlinx.android.synthetic.main.register_fragment.editPassword
 import kotlinx.android.synthetic.main.register_fragment.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RegisterFragment : Fragment() {
 
     lateinit var registerViewModel: RegisterViewModel
     lateinit var v : View
-    private val PREF_NAME = "myPreferences"
-    lateinit var user : MutableLiveData<FirebaseUser>
+    private val prefName = "myPreferences"
     companion object {
         fun newInstance() = RegisterFragment()
     }
@@ -40,15 +43,22 @@ class RegisterFragment : Fragment() {
                     Toast.makeText(activity, "Login successfull", Toast.LENGTH_SHORT).show()
 
                     firebaseUser?.let {
-                        val name = firebaseUser!!.displayName
-                        val email = firebaseUser!!.email
+                        val name = firebaseUser.displayName
+                        val email = firebaseUser.email
+                        val uid = firebaseUser.uid
                         Log.d("Este es el user",email.toString())
-                        val sharedPref: SharedPreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+                        val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
                         val editor = sharedPref.edit()
+                        editor.putString("UID", uid)
                         editor.putString("NAME", name)
                         editor.putString("EMAIL", email)
+
                         editor.apply()
                     }
+
+
+                    Navigation.findNavController(v)
+                        .navigate(R.id.action_registerFragment_to_comerceRegisterFragment)
                 }
             }
         )
@@ -77,9 +87,6 @@ class RegisterFragment : Fragment() {
                     editEmail.text.trim().toString(),
                     editPassword.text.trim().toString()
                 )
-
-                    Navigation.findNavController(v)
-                        .navigate(R.id.action_registerFragment_to_comerceRegisterFragment)
 
             } else {
                 Toast.makeText(activity, "Input required", Toast.LENGTH_LONG).show()
