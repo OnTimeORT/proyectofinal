@@ -49,6 +49,7 @@ class comerceRegisterFragment : Fragment() {
         cuitText = v.findViewById(R.id.cuitEditText)
 
         val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
+
         Log.d("Este es el mail", sharedPref.getString("EMAIL","").toString())
         Toast.makeText(activity, sharedPref.getString("NAME","").toString(), Toast.LENGTH_LONG).show()
 
@@ -68,7 +69,10 @@ class comerceRegisterFragment : Fragment() {
         btnCompleteRegister.setOnClickListener {
             if (nameText.text.trim().toString().isNotEmpty() || phoneText.text.trim().toString().isNotEmpty()
                 || cuitText.text.trim().toString().isNotEmpty()) {
-
+                val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
+                val uid= sharedPref.getString("UID", "").toString()
+                comerceRegisterViewModel.updateProfileCommerce(uid,nameText.text.trim().toString(),phoneText.text.trim().toString(),
+                    cuitText.text.trim().toString())
             }
 
         }

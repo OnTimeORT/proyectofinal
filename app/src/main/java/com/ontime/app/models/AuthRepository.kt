@@ -11,12 +11,13 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class AuthRepository(var application: Application) {
     var userMutableLiveData: MutableLiveData<FirebaseUser> = MutableLiveData<FirebaseUser>()
     var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
-
+    val db = FirebaseFirestore.getInstance()
 
     fun login(email: String, password: String) : FirebaseUser? {
         var user : FirebaseUser? = null
@@ -92,7 +93,18 @@ class AuthRepository(var application: Application) {
             }
     }
 
-    fun secondStepRegisterStore() {
+    fun updateProfileCommerce(userId: String, name: String, phone: String, cuit: String){
 
+        val userData = hashMapOf(
+            "name" to name,
+            "phone" to phone,
+            "cuit" to cuit
+        )
+
+        db.collection("users").document(userId)
+            .set(userData)
+            .addOnSuccessListener { Log.d("El usuario fue almacenado en la bd", "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w("El usuario no pudo ser almacenado", "Error writing document", e) }
     }
+
 }

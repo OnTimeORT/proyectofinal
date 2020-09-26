@@ -14,4 +14,7 @@ class ComerceRegisterViewModel(application: Application) : AndroidViewModel(appl
     var authRepository: AuthRepository = AuthRepository(application)
     var userMutableLiveData: MutableLiveData<FirebaseUser> = authRepository.userMutableLiveData
 
+    fun updateProfileCommerce(userId: String, name: String, phone: String, cuit: String){
+        return authRepository.updateProfileCommerce(userId, name,phone,cuit)
+    }
 }
