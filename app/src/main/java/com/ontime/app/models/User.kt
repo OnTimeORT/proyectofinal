@@ -1,5 +1,5 @@
 package com.ontime.app.models
-/*
+
 import android.os.Parcel
 import android.os.Parcelable
 class User(name: String?, email: String?, phone: String?, imageUrl: String?) : Parcelable {
@@ -11,12 +11,13 @@ class User(name: String?, email: String?, phone: String?, imageUrl: String?) : P
 
     constructor() : this("","","","")
 
+    /*
     init {
         this.name: name!!
         this.email: email!!
         this.phone: phone!!
         this.imageUrl: imageUrl!!
-    }
+    } */
 
     constructor(source: Parcel) : this(
         source.readString()!!,
@@ -47,4 +48,3 @@ class User(name: String?, email: String?, phone: String?, imageUrl: String?) : P
     }
 }
 
- */

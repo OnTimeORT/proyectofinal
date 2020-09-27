@@ -1,28 +1,30 @@
 package com.ontime.app.models
-/*
+
 import android.os.Parcel
 import android.os.Parcelable
 
-class Store(name: String?, email: String?, phone: String?, category: String?, imageUrl: String?) : Parcelable {
+data class Commerce(
+    val name: String? = null,
+    val category: String? = null,
+    val phone: String? = null,
+    val cuit: String? = null,
+    val imageUrl: String? = null
+)
 
-
-    var name: String = ""
-    var email: String = ""
-    var phone: String = ""
-    var category: String = ""
-    var imageUrl: String = ""
-
-    constructor() : this("","","","","")
+    /* Para hacerlo parcelable
+    constructor() : this("","","","","","")
 
     init {
         this.name: name!!
         this.email: email!!
         this.phone: phone!!
         this.category: category!!
+        this.cuit: cuit!!
         this.imageUrl: imageUrl!!
     }
 
     constructor(source: Parcel) : this(
+        source.readString()!!,
         source.readString()!!,
         source.readString()!!,
         source.readString()!!,
@@ -35,13 +37,14 @@ class Store(name: String?, email: String?, phone: String?, category: String?, im
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(name)
         writeString(email)
-        writeString(phone)
         writeString(category)
+        writeString(phone)
+        writeString(cuit)
         writeString(imageUrl)
     }
 
     override fun toString(): String {
-        return "User(name='$name', email='$email', phone='$phone', category='$category', imageUrl=$imageUrl)"
+        return "User(name='$name', email='$email',category='$category', phone='$phone', cuit='$cuit', imageUrl=$imageUrl)"
     }
 
     companion object {
@@ -51,4 +54,5 @@ class Store(name: String?, email: String?, phone: String?, category: String?, im
             override fun newArray(size: Int): Array<User?> = arrayOfNulls(size)
         }
     }
-}*/
+
+     */

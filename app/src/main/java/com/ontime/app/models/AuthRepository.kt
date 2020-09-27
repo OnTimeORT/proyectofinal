@@ -1,8 +1,6 @@
 package com.ontime.app.models
 
 import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
@@ -98,19 +96,25 @@ class AuthRepository(var application: Application) {
     }
 
     fun updateProfileCommerce(userId: String, name: String, phone: String, cuit: String){
-
-        /*Cambiar a modelo USER*/
         /*Agregar categoria*/
-        val userData = hashMapOf(
-            "name" to name,
-            "phone" to phone,
-            "cuit" to cuit
-        )
 
-        db.collection("users").document(userId)
-            .set(userData)
-            .addOnSuccessListener { Log.d("El usuario fue almacenado en la bd", "DocumentSnapshot successfully written!") }
-            .addOnFailureListener { e -> Log.w("El usuario no pudo ser almacenado", "Error writing document", e) }
+        val storeData = Commerce(name,null,phone, cuit, null)
+
+        db.collection("stores").document(userId)
+            .set(storeData)
+            .addOnSuccessListener {
+                Log.d("El comercio fue almacenado en la bd", "DocumentSnapshot successfully written!")
+                Toast.makeText(
+                    application.applicationContext, "El comercio se registro con éxito",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            .addOnFailureListener {
+                    e -> Log.w("El comercio no se pudo registrar", "Error writing document", e)
+                Toast.makeText(
+                    application.applicationContext, "El comercio no se pudo registrar",
+                    Toast.LENGTH_SHORT
+                ).show()}
     }
 
 }
