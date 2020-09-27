@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_loginFragment_to_commerceMainFragment"
             app:destination="@+id/commerceMainFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userMainActivity"
+            app:destination="@id/userMainActivity" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -328,4 +331,9 @@
         android:name="com.ontime.app.views.auth.comerceRegisterFragment"
         android:label="comerce_register_fragment"
         tools:layout="@layout/comerce_register_fragment" />
+    <activity
+        android:id="@+id/userMainActivity"
+        android:name="com.ontime.app.views.UserMainActivity"
+        android:label="activity_user_main"
+        tools:layout="@layout/activity_user_main" />
 </navigation>

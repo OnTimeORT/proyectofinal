@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.observe
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -42,6 +44,8 @@ class LoginFragment : Fragment() {
             { firebaseUser: FirebaseUser? ->
                 if (firebaseUser != null) {
                     Toast.makeText(activity, "User signed in", Toast.LENGTH_SHORT).show()
+
+                    findNavController().navigate(R.id.action_loginFragment_to_userMainActivity)
                 }
             }
         )
