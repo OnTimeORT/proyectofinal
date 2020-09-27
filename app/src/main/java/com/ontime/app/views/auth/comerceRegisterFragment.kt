@@ -52,14 +52,17 @@ class comerceRegisterFragment : Fragment() {
 
         val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
 
-        Log.d("Este es el mail", sharedPref.getString("EMAIL","").toString())
-        Toast.makeText(activity, sharedPref.getString("NAME","").toString(), Toast.LENGTH_LONG).show()
+        val nameSharedPref = sharedPref.getString("NAME", "").toString()
+        val emailSharedPref = sharedPref.getString("EMAIL", "").toString()
 
-        if(sharedPref.getString("NAME","")!="") {
-            nameText.setText(sharedPref.getString("NAME", ""))
+        Log.d("Este es el mail", emailSharedPref)
+        Toast.makeText(activity, nameSharedPref, Toast.LENGTH_LONG).show()
+
+        if(nameSharedPref!="") {
+            nameText.setText(nameSharedPref)
         }
-        if(sharedPref.getString("EMAIL","")!="") {
-            emailText.setText(sharedPref.getString("EMAIL", ""))
+        if(emailSharedPref!="") {
+            emailText.setText(emailSharedPref)
         }
 
         return v
@@ -69,14 +72,16 @@ class comerceRegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnCompleteRegister.setOnClickListener {
-            /*colocar el choclo en variables y ponerlos como parametros en la funcion*/
             /*agregar categoria*/
-            if (nameText.text.trim().toString().isNotEmpty() || phoneText.text.trim().toString().isNotEmpty()
-                || cuitText.text.trim().toString().isNotEmpty()) {
+
+            var name = if(nameText.text.trim().toString().isNotEmpty()) nameText.text.trim().toString() else ""
+            var phone = if(phoneText.text.trim().toString().isNotEmpty()) phoneText.text.trim().toString() else ""
+            var cuit= if(cuitText.text.trim().toString().isNotEmpty()) cuitText.text.trim().toString() else ""
+
+            if (name != "" && phone != "" && cuit != "") {
                 val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
-                val uid= sharedPref.getString("UID", "").toString()
-                comerceRegisterViewModel.updateProfileCommerce(uid,nameText.text.trim().toString(),phoneText.text.trim().toString(),
-                    cuitText.text.trim().toString())
+                val uid = sharedPref.getString("UID", "").toString()
+                comerceRegisterViewModel.updateProfileCommerce(uid,name,phone,cuit)
             }
 
         }
