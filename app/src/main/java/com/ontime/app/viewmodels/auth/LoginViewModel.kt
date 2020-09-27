@@ -8,7 +8,6 @@ import com.ontime.app.models.AuthRepository
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     var authRepository: AuthRepository = AuthRepository(application)
-    //La userMutableLiveData se podria sacar no?
     var userMutableLiveData: MutableLiveData<FirebaseUser> = authRepository.userMutableLiveData
 
     fun login(email: String, password: String) {

@@ -29,6 +29,9 @@ import kotlinx.android.synthetic.main.login_fragment.view.*
 
 class LoginFragment : Fragment() {
 
+    /*ver si se puede simplificar los metodos oncreate, oncreateview, onviewcreated, onactivityresult*/
+    /*agregar sharedPreference*/
+    /*agregar comentarios de cada funcion*/
     lateinit var loginViewModel: LoginViewModel
     private val callbackManager = CallbackManager.Factory.create()
 

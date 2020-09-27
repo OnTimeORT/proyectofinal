@@ -15,6 +15,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 
 class AuthRepository(var application: Application) {
+
+    /*agregar atributos privados*/
+    /*agregar las explicaciones a cada funcion*/
+
     var userMutableLiveData: MutableLiveData<FirebaseUser> = MutableLiveData<FirebaseUser>()
     var firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
@@ -95,6 +99,8 @@ class AuthRepository(var application: Application) {
 
     fun updateProfileCommerce(userId: String, name: String, phone: String, cuit: String){
 
+        /*Cambiar a modelo USER*/
+        /*Agregar categoria*/
         val userData = hashMapOf(
             "name" to name,
             "phone" to phone,

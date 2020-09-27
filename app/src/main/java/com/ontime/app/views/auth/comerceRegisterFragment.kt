@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.register_fragment.*
 
 class comerceRegisterFragment : Fragment() {
 
+    /*quitar los findviewbyid*/
+    /*agregar los @string en los layout */
     private lateinit var comerceRegisterViewModel: ComerceRegisterViewModel
     lateinit var v : View
     lateinit var emailText : EditText
@@ -67,6 +69,8 @@ class comerceRegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnCompleteRegister.setOnClickListener {
+            /*colocar el choclo en variables y ponerlos como parametros en la funcion*/
+            /*agregar categoria*/
             if (nameText.text.trim().toString().isNotEmpty() || phoneText.text.trim().toString().isNotEmpty()
                 || cuitText.text.trim().toString().isNotEmpty()) {
                 val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)

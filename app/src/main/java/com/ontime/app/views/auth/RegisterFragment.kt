@@ -37,10 +37,13 @@ import kotlinx.coroutines.withContext
 
 class RegisterFragment : Fragment() {
 
+    /*ver si se puede simplificar los metodos oncreate, oncreateview, onviewcreated, onactivityresult*/
+    /*agregar comentarios de cada funcion*/
     lateinit var registerViewModel: RegisterViewModel
     private val callbackManager = CallbackManager.Factory.create()
-    lateinit var v : View
+    lateinit var v: View
     private val prefName = "myPreferences"
+
     companion object {
         fun newInstance() = RegisterFragment()
     }
@@ -53,13 +56,14 @@ class RegisterFragment : Fragment() {
             { firebaseUser: FirebaseUser? ->
                 if (firebaseUser != null) {
                     Toast.makeText(activity, "Login successfull", Toast.LENGTH_SHORT).show()
-
+                    /*Colocar en una funcion, las funcionalidades de sharedPreferences*/
                     firebaseUser?.let {
                         val name = firebaseUser.displayName
                         val email = firebaseUser.email
                         val uid = firebaseUser.uid
-                        Log.d("Este es el user",email.toString())
-                        val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
+                        Log.d("Este es el user", email.toString())
+                        val sharedPref: SharedPreferences =
+                            requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
                         val editor = sharedPref.edit()
                         editor.putString("UID", uid)
                         editor.putString("NAME", name)
@@ -90,7 +94,7 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        /*Colocar el choclo en variables y pasarlas como parametro en la funcion*/
         btnRegister.setOnClickListener {
             if (editEmail.text.trim().toString().isNotEmpty() || editPassword.text.trim().toString()
                     .isNotEmpty()
