@@ -9,16 +9,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseUser
 import com.ontime.app.R
 import com.ontime.app.viewmodels.auth.ComerceRegisterViewModel
 import kotlinx.android.synthetic.main.comerce_register_fragment.*
 import kotlinx.android.synthetic.main.register_fragment.*
+import org.w3c.dom.Text
 
-class comerceRegisterFragment : Fragment() {
+class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     /*quitar los findviewbyid*/
     /*agregar los @string en los layout */
@@ -29,7 +28,16 @@ class comerceRegisterFragment : Fragment() {
     lateinit var phoneText : EditText
     lateinit var cuitText : EditText
     private val prefName = "myPreferences"
+    private var spinner : Spinner? = null
+    private var arrayAdapter: ArrayAdapter<String>? = null
+    private var categorySelected: String = ""
 
+    private var categories = arrayOf(
+        "Restaurante",
+        "Bar",
+        "Heladerías",
+        "Clinicas"
+    )
     companion object {
         fun newInstance() = comerceRegisterFragment()
     }
@@ -38,6 +46,7 @@ class comerceRegisterFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         comerceRegisterViewModel = ViewModelProviders.of(this).get(ComerceRegisterViewModel::class.java)
+
 
     }
     override fun onCreateView(
@@ -49,6 +58,11 @@ class comerceRegisterFragment : Fragment() {
         emailText = v.findViewById(R.id.emailEditText)
         phoneText = v.findViewById(R.id.phoneEditText)
         cuitText = v.findViewById(R.id.cuitEditText)
+        spinner = v.findViewById(R.id.categorySpinner)
+
+        arrayAdapter =  ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,categories)
+        spinner?.adapter = arrayAdapter
+        spinner?.onItemSelectedListener = this
 
         val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
 
@@ -81,11 +95,22 @@ class comerceRegisterFragment : Fragment() {
             if (name != "" && phone != "" && cuit != "") {
                 val sharedPref: SharedPreferences = requireContext().getSharedPreferences(prefName, Context.MODE_PRIVATE)
                 val uid = sharedPref.getString("UID", "").toString()
-                comerceRegisterViewModel.updateProfileCommerce(uid,name,phone,cuit)
+
+                comerceRegisterViewModel.updateProfileCommerce(uid,name, categorySelected,phone,cuit)
             }
 
         }
     }
+
+    override fun onNothingSelected(parent: AdapterView<*>?){
+        Toast.makeText(activity, "No se seleccionó una categoría", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        var items:String = parent?.getItemAtPosition(position) as String
+        categorySelected = items
+    }
+
 
 
 }

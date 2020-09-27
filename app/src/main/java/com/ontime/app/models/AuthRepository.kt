@@ -95,10 +95,10 @@ class AuthRepository(var application: Application) {
             }
     }
 
-    fun updateProfileCommerce(userId: String, name: String, phone: String, cuit: String){
+    fun updateProfileCommerce(userId: String, name: String, category: String, phone: String, cuit: String){
         /*Agregar categoria*/
 
-        val storeData = Commerce(name,null,phone, cuit, null)
+        val storeData = Commerce(name,category,phone, cuit, null)
 
         db.collection("stores").document(userId)
             .set(storeData)
