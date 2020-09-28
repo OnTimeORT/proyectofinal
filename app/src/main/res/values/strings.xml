@@ -22,4 +22,11 @@
     <string name="tvDias">Dias</string>
     <string name="tvDesde">Desde</string>
     <string name="tvHasta">Hasta</string>
+    <string name="tvHorarios">Horarios</string>
+    <string name="tvTipoTurnos">Tipo de turnos</string>
+    <string name="tvTurnos">Turnos</string>
+    <string name="btnFijos">Fijos</string>
+    <string name="btnVariables">Variables</string>
+    <string name="tvDuracion">Duracion</string>
+    <string name="btnContinuar">Continuar</string>
 </resources>
