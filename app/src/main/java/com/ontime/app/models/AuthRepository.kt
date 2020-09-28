@@ -119,6 +119,7 @@ class AuthRepository(var application: Application) {
     fun getCategories() : ArrayList<String> {
 
         var categories : ArrayList<String> = arrayListOf()
+        categories.add("Seleccionar categoría")
 
         db.collection("categories").get()
             .addOnSuccessListener { result ->

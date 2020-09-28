@@ -31,10 +31,11 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private val prefName = "myPreferences"
     private var spinner : Spinner? = null
     private var arrayAdapter: ArrayAdapter<String>? = null
-    private var categorySelected: String = ""
+    private lateinit var categorySelected: String
     private lateinit var categories : ArrayList<String>
 
-    /*  private var categories = arrayOf(
+/*
+     private var categories = arrayOf(
         "Restaurante",
         "Bar",
         "Heladerías",
@@ -47,8 +48,8 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         comerceRegisterViewModel = ViewModelProviders.of(this).get(ComerceRegisterViewModel::class.java)
+        categories=comerceRegisterViewModel.getCategories()
 
     }
     override fun onCreateView(
@@ -62,11 +63,12 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
         cuitText = v.findViewById(R.id.cuitEditText)
         spinner = v.findViewById(R.id.categorySpinner)
 
-        categories = comerceRegisterViewModel.getCategories()
+       // categories = comerceRegisterViewModel.getCategories()
         Log.d("categorias",categories.toString())
         Log.d("categorias!!",categories!!.toString())
 
-        arrayAdapter =  ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,comerceRegisterViewModel.getCategories())
+        arrayAdapter =  ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,categories)
+        arrayAdapter!!.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner?.adapter = arrayAdapter
         spinner?.onItemSelectedListener = this
 
@@ -114,11 +116,13 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
         Toast.makeText(activity, "No se seleccionó una categoría", Toast.LENGTH_LONG).show()
     }
 
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var items:String = parent?.getItemAtPosition(position) as String
-        categorySelected = items
+    override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+        if (parent.getItemAtPosition(position).equals("Seleccionar categoría")) {
+
+        } else {
+            categorySelected = parent.getItemAtPosition(position).toString();
+        }
+
     }
-
-
 
 }
