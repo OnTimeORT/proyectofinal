@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseUser
 import com.ontime.app.R
 import com.ontime.app.viewmodels.auth.ComerceRegisterViewModel
@@ -31,13 +32,15 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private var spinner : Spinner? = null
     private var arrayAdapter: ArrayAdapter<String>? = null
     private var categorySelected: String = ""
+    private lateinit var categories : ArrayList<String>
 
-    private var categories = arrayOf(
+    /*  private var categories = arrayOf(
         "Restaurante",
         "Bar",
         "Heladerías",
         "Clinicas"
-    )
+    ) */
+
     companion object {
         fun newInstance() = comerceRegisterFragment()
     }
@@ -46,7 +49,6 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
         super.onCreate(savedInstanceState)
 
         comerceRegisterViewModel = ViewModelProviders.of(this).get(ComerceRegisterViewModel::class.java)
-
 
     }
     override fun onCreateView(
@@ -60,7 +62,11 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
         cuitText = v.findViewById(R.id.cuitEditText)
         spinner = v.findViewById(R.id.categorySpinner)
 
-        arrayAdapter =  ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,categories)
+        categories = comerceRegisterViewModel.getCategories()
+        Log.d("categorias",categories.toString())
+        Log.d("categorias!!",categories!!.toString())
+
+        arrayAdapter =  ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,comerceRegisterViewModel.getCategories())
         spinner?.adapter = arrayAdapter
         spinner?.onItemSelectedListener = this
 
@@ -86,7 +92,6 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
         super.onViewCreated(view, savedInstanceState)
 
         btnCompleteRegister.setOnClickListener {
-            /*agregar categoria*/
 
             var name = if(nameText.text.trim().toString().isNotEmpty()) nameText.text.trim().toString() else ""
             var phone = if(phoneText.text.trim().toString().isNotEmpty()) phoneText.text.trim().toString() else ""
@@ -97,6 +102,9 @@ class comerceRegisterFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 val uid = sharedPref.getString("UID", "").toString()
 
                 comerceRegisterViewModel.updateProfileCommerce(uid,name, categorySelected,phone,cuit)
+
+                Navigation.findNavController(v)
+                    .navigate(R.id.action_comerceRegisterFragment_to_loginFragment)
             }
 
         }

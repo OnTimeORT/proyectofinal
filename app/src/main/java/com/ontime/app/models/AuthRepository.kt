@@ -96,7 +96,6 @@ class AuthRepository(var application: Application) {
     }
 
     fun updateProfileCommerce(userId: String, name: String, category: String, phone: String, cuit: String){
-        /*Agregar categoria*/
 
         val storeData = Commerce(name,category,phone, cuit, null)
 
@@ -115,6 +114,23 @@ class AuthRepository(var application: Application) {
                     application.applicationContext, "El comercio no se pudo registrar",
                     Toast.LENGTH_SHORT
                 ).show()}
+    }
+
+    fun getCategories() : ArrayList<String> {
+
+        var categories : ArrayList<String> = arrayListOf()
+
+        db.collection("categories").get()
+            .addOnSuccessListener { result ->
+
+                for(category in result){
+                    category.getString("name")?.let { categories.add(it) }
+                  }
+                }
+            .addOnFailureListener {
+                    e -> Log.w("No se pudo acceder a las categorias", "Error getting document", e)
+                }
+        return categories
     }
 
 }

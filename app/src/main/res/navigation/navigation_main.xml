@@ -321,7 +321,11 @@
         android:id="@+id/comerceRegisterFragment"
         android:name="com.ontime.app.views.auth.comerceRegisterFragment"
         android:label="comerce_register_fragment"
-        tools:layout="@layout/comerce_register_fragment" />
+        tools:layout="@layout/comerce_register_fragment" >
+        <action
+            android:id="@+id/action_comerceRegisterFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <activity
         android:id="@+id/userMainActivity"
         android:name="com.ontime.app.views.UserMainActivity"

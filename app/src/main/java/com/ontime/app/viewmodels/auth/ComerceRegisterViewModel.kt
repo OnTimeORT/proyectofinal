@@ -17,4 +17,8 @@ class ComerceRegisterViewModel(application: Application) : AndroidViewModel(appl
     fun updateProfileCommerce(userId: String, name: String, category: String, phone: String, cuit: String){
         return authRepository.updateProfileCommerce(userId, name,category,phone,cuit)
     }
+
+    fun getCategories() : ArrayList<String>{
+        return authRepository.getCategories()
+    }
 }
