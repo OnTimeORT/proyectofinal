@@ -67,6 +67,8 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    //https://github.com/gantonious/MaterialDayPicker
+    implementation 'ca.antonious:materialdaypicker:0.7.2'
 }
 
 apply plugin: 'com.google.gms.google-services'

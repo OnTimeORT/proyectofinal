@@ -7,11 +7,26 @@
     <string name="btnLogin">Ingresar</string>
     <string name="tvPassword">Contraseña</string>
     <string name="tvEmail">Email</string>
-    <string name="tvIngresar">Ingresar</string>
     <string name="btnLoginGoogle">Usar Google</string>
     <string name="btnLoginFacebook">Usar Facebook</string>
     <string name="btnGoToLogin">Ya tengo cuenta</string>
     <string name="tvRegistrarUsuario">Registrar usuario</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="tvNombre">Nombre</string>
+    <string name="tvDescripcion">Descripcion</string>
+    <string name="tvIngresar">Ingresar</string>
+    <string name="tvMisFilas">Mis Filas</string>
+    <string name="tvAgregarFila">Agregar una fila</string>
+    <string name="tvDias">Dias</string>
+    <string name="tvDesde">Desde</string>
+    <string name="tvHasta">Hasta</string>
+    <string name="tvHorarios">Horarios</string>
+    <string name="tvTipoTurnos">Tipo de turnos</string>
+    <string name="tvTurnos">Turnos</string>
+    <string name="btnFijos">Fijos</string>
+    <string name="btnVariables">Variables</string>
+    <string name="tvDuracion">Duracion</string>
+    <string name="btnContinuar">Continuar</string>
 </resources>
