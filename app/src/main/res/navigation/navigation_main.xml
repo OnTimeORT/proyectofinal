@@ -3,239 +3,230 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/frLogin">
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.ontime.app.views.auth.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/login_fragment">
+        android:id="@+id/frLogin"
+        android:name="com.ontime.app.features.auth.login.FrLogin"
+        android:label="fr_login"
+        tools:layout="@layout/fr_login">
         <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@+id/registerFragment" />
+            android:id="@+id/action_frLogin_to_frRegister"
+            app:destination="@+id/frRegister" />
         <action
-            android:id="@+id/action_loginFragment_to_userMainFragment"
-            app:destination="@+id/userMainFragment" />
+            android:id="@+id/action_frLogin_to_frHome"
+            app:destination="@id/frHome" />
         <action
-            android:id="@+id/action_loginFragment_to_userMainActivity"
+            android:id="@+id/action_frLogin_to_userMainActivity"
             app:destination="@id/userMainActivity" />
     </fragment>
     <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.ontime.app.views.auth.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/register_fragment">
+        android:id="@+id/frRegister"
+        android:name="com.ontime.app.features.auth.register.FrRegister"
+        android:label="fr_register"
+        tools:layout="@layout/fr_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@+id/loginFragment" />
+            app:destination="@+id/frLogin" />
         <action
-            android:id="@+id/action_registerFragment_to_registerInfoFragment"
-            app:destination="@id/registerInfoFragment" />
+            android:id="@+id/action_fr_frRegister_to_frRegisterInfo"
+            app:destination="@id/frRegisterInfo" />
     </fragment>
     <fragment
-        android:id="@+id/selectProfileFragment"
-        android:name="com.ontime.app.views.selectProfileFragment"
-        android:label="select_profile_fragment"
-        tools:layout="@layout/select_profile_fragment">
+        android:id="@+id/frHome"
+        android:name="com.ontime.app.features.home.FrHome"
+        android:label="fr_home"
+        tools:layout="@layout/fr_home">
         <action
-            android:id="@+id/action_selectProfileFragment_to_loginFragment"
-            app:destination="@+id/loginFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/userMainFragment"
-        android:name="com.ontime.app.views.userMainFragment"
-        android:label="user_main_fragment"
-        tools:layout="@layout/user_main_fragment">
+            android:id="@+id/action_frHome_to_frHomeCategories"
+            app:destination="@+id/frHomeCategories" />
         <action
-            android:id="@+id/action_userMainFragment_to_userHomeCategoriesFragment"
-            app:destination="@+id/userHomeCategoriesFragment" />
+            android:id="@+id/action_frHome_to_frBookings"
+            app:destination="@+id/frBookings" />
         <action
-            android:id="@+id/action_userMainFragment_to_userBookingsFragment"
-            app:destination="@+id/userBookingsFragment" />
+            android:id="@+id/action_frHome_to_frFavorites"
+            app:destination="@+id/frFavorites" />
         <action
-            android:id="@+id/action_userMainFragment_to_userFavoritesFragment"
-            app:destination="@+id/userFavoritesFragment" />
-        <action
-            android:id="@+id/action_userMainFragment_to_userScanQRFragment"
-            app:destination="@+id/userScanQRFragment" />
+            android:id="@+id/action_frHome_to_frScanQR"
+            app:destination="@+id/frScanQR" />
         <action
             android:id="@+id/action_userMainFragment_to_userAccountDetailsFragment"
-            app:destination="@+id/userAccountDetailsFragment" />
+            app:destination="@+id/frAccountDetails" />
         <action
-            android:id="@+id/action_userMainFragment_to_userNearestStoresMapFragment"
-            app:destination="@+id/userNearestStoresMapFragment" />
+            android:id="@+id/action_frHome_to_frNearestStoresMap"
+            app:destination="@+id/frNearestStoresMap" />
         <action
-            android:id="@+id/action_userMainFragment_to_userSelectedStoreFragment"
-            app:destination="@+id/userSelectedStoreFragment" />
+            android:id="@+id/action_frHome_to_frSelectedStore"
+            app:destination="@+id/frSelectedStore" />
     </fragment>
     <fragment
-        android:id="@+id/userHomeCategoriesFragment"
-        android:name="com.ontime.app.views.userHomeCategoriesFragment"
-        android:label="user_home_categories_fragment"
-        tools:layout="@layout/user_home_categories_fragment">
+        android:id="@+id/frHomeCategories"
+        android:name="com.ontime.app.features.homeCategories.FrHomeCategories"
+        android:label="fr_home_categories"
+        tools:layout="@layout/fr_home_categories">
         <action
-            android:id="@+id/action_userHomeCategoriesFragment_to_userFilteredCategoryFragment"
-            app:destination="@+id/userFilteredCategoryFragment" />
+            android:id="@+id/action_frHomeCategories_to_frFilteredCategory"
+            app:destination="@+id/frFilteredCategory" />
     </fragment>
     <fragment
-        android:id="@+id/userBookingsFragment"
-        android:name="com.ontime.app.views.userBookingsFragment"
-        android:label="user_bookings_fragment"
-        tools:layout="@layout/user_bookings_fragment">
+        android:id="@+id/frBookings"
+        android:name="com.ontime.app.features.bookings.FrBookings"
+        android:label="fr_bookings"
+        tools:layout="@layout/fr_bookings">
         <action
-            android:id="@+id/action_userBookingsFragment_to_userBookingConfirmedFragment"
-            app:destination="@+id/userBookingConfirmedFragment" />
+            android:id="@+id/action_frBookings_to_frBookingConfirmed"
+            app:destination="@+id/frBookingConfirmed" />
     </fragment>
     <fragment
-        android:id="@+id/userFavoritesFragment"
-        android:name="com.ontime.app.views.userFavoritesFragment"
-        android:label="user_favorites_fragment"
-        tools:layout="@layout/user_favorites_fragment">
+        android:id="@+id/frFavorites"
+        android:name="com.ontime.app.features.favorites.FrFavorites"
+        android:label="fr_favorites"
+        tools:layout="@layout/fr_favorites">
         <action
-            android:id="@+id/action_userFavoritesFragment_to_userSelectedStoreFragment"
-            app:destination="@+id/userSelectedStoreFragment" />
+            android:id="@+id/action_frFavorites_to_frSelectedStore"
+            app:destination="@+id/frSelectedStore" />
     </fragment>
     <fragment
-        android:id="@+id/userScanQRFragment"
-        android:name="com.ontime.app.views.userScanQRFragment"
-        android:label="user_scan_q_r_fragment"
-        tools:layout="@layout/user_scan_q_r_fragment">
+        android:id="@+id/frScanQR"
+        android:name="com.ontime.app.features.scanQR.FrScanQR"
+        android:label="fr_scan_qr"
+        tools:layout="@layout/fr_scan_qr">
         <action
             android:id="@+id/action_userScanQRFragment_to_userSelectedStoreFragment"
-            app:destination="@+id/userSelectedStoreFragment" />
+            app:destination="@+id/frSelectedStore" />
     </fragment>
     <fragment
-        android:id="@+id/userAccountDetailsFragment"
-        android:name="com.ontime.app.views.userAccountDetailsFragment"
-        android:label="user_account_details_fragment"
-        tools:layout="@layout/user_account_details_fragment">
+        android:id="@+id/frAccountDetails"
+        android:name="com.ontime.app.features.accountDetails.FrAccountDetails"
+        android:label="fr_account_details"
+        tools:layout="@layout/fr_account_details">
         <action
-            android:id="@+id/action_userAccountDetailsFragment_to_userEditAccountFragment"
-            app:destination="@+id/userEditAccountFragment" />
+            android:id="@+id/action_frAccountDetails_to_frEditAccount"
+            app:destination="@+id/frEditAccount" />
         <action
-            android:id="@+id/action_userAccountDetailsFragment_to_userEditPasswordFragment"
-            app:destination="@+id/userEditPasswordFragment" />
+            android:id="@+id/action_frAccountDetails_to_frEditPassword"
+            app:destination="@+id/frEditPassword" />
     </fragment>
     <fragment
-        android:id="@+id/userEditAccountFragment"
-        android:name="com.ontime.app.views.userEditAccountFragment"
-        android:label="user_edit_account_fragment"
-        tools:layout="@layout/user_edit_account_fragment">
+        android:id="@+id/frEditAccount"
+        android:name="com.ontime.app.features.editAccount.FrEditAccount"
+        android:label="fr_edit_account"
+        tools:layout="@layout/fr_edit_account">
         <action
-            android:id="@+id/action_userEditAccountFragment_to_userAccountDetailsFragment"
-            app:destination="@+id/userAccountDetailsFragment" />
+            android:id="@+id/action_frEditAccount_to_frAccountDetails"
+            app:destination="@+id/frAccountDetails" />
         <action
-            android:id="@+id/action_userEditAccountFragment_to_userDeleteAccountFragment"
-            app:destination="@+id/userDeleteAccountFragment" />
+            android:id="@+id/action_frEditAccount_to_frDeleteAccount"
+            app:destination="@+id/frDeleteAccount" />
     </fragment>
     <fragment
-        android:id="@+id/userEditPasswordFragment"
-        android:name="com.ontime.app.views.userEditPasswordFragment"
-        android:label="user_edit_password_fragment"
-        tools:layout="@layout/user_edit_password_fragment">
+        android:id="@+id/frEditPassword"
+        android:name="com.ontime.app.features.editPassword.FrEditPassword"
+        android:label="fr_edit_password"
+        tools:layout="@layout/fr_edit_password">
         <action
-            android:id="@+id/action_userEditPasswordFragment_to_userAccountDetailsFragment"
-            app:destination="@+id/userAccountDetailsFragment" />
+            android:id="@+id/action_frEditPassword_to_frAccountDetails"
+            app:destination="@+id/frAccountDetails" />
     </fragment>
     <fragment
-        android:id="@+id/userDeleteAccountFragment"
-        android:name="com.ontime.app.views.userDeleteAccountFragment"
-        android:label="user_delete_account_fragment"
-        tools:layout="@layout/user_delete_account_fragment">
+        android:id="@+id/frDeleteAccount"
+        android:name="com.ontime.app.features.deleteAccount.FrDeleteAccount"
+        android:label="fr_delete_account"
+        tools:layout="@layout/fr_delete_account">
         <action
-            android:id="@+id/action_userDeleteAccountFragment_to_selectProfileFragment"
-            app:destination="@+id/selectProfileFragment" />
+            android:id="@+id/action_frDeleteAccount_to_frLogin"
+            app:destination="@id/frLogin" />
     </fragment>
     <fragment
-        android:id="@+id/userNearestStoresMapFragment"
-        android:name="com.ontime.app.views.userNearestStoresMapFragment"
-        android:label="user_nearest_stores_map_fragment"
-        tools:layout="@layout/user_nearest_stores_map_fragment">
+        android:id="@+id/frNearestStoresMap"
+        android:name="com.ontime.app.features.nearestStoresMap.FrNearestStoresMap"
+        android:label="fr_nearest_stores_map"
+        tools:layout="@layout/fr_nearest_stores_map">
         <action
-            android:id="@+id/action_userNearestStoresMapFragment_to_userNearestStoresListFragment"
-            app:destination="@+id/userNearestStoresListFragment" />
+            android:id="@+id/action_frNearestStoresMap_to_frNearestStoresList"
+            app:destination="@+id/frNearestStoresList" />
         <action
-            android:id="@+id/action_userNearestStoresMapFragment_to_userSelectedStoreFragment"
-            app:destination="@+id/userSelectedStoreFragment" />
+            android:id="@+id/action_frNearestStoresMap_to_frSelectedStore"
+            app:destination="@+id/frSelectedStore" />
     </fragment>
     <fragment
-        android:id="@+id/userNearestStoresListFragment"
-        android:name="com.ontime.app.views.userNearestStoresListFragment"
-        android:label="user_nearest_stores_list_fragment"
-        tools:layout="@layout/user_nearest_stores_list_fragment">
+        android:id="@+id/frNearestStoresList"
+        android:name="com.ontime.app.features.nearestStoresList.FrNearestStoresList"
+        android:label="fr_nearest_stores_list"
+        tools:layout="@layout/fr_nearest_stores_list">
         <action
-            android:id="@+id/action_userNearestStoresListFragment_to_userSelectedStoreFragment"
-            app:destination="@+id/userSelectedStoreFragment" />
+            android:id="@+id/action_frNearestStoresList_to_frSelectedStore"
+            app:destination="@+id/frSelectedStore" />
     </fragment>
     <fragment
-        android:id="@+id/userSelectedStoreFragment"
-        android:name="com.ontime.app.views.userSelectedStoreFragment"
-        android:label="user_selected_store_fragment"
-        tools:layout="@layout/user_selected_store_fragment">
+        android:id="@+id/frSelectedStore"
+        android:name="com.ontime.app.features.selectedStore.FrSelectedStore"
+        android:label="fr_selected_store"
+        tools:layout="@layout/fr_selected_store">
         <action
             android:id="@+id/action_userSelectedStoreFragment_to_userSelectedStoreSimpleQueue"
-            app:destination="@+id/userSelectedStoreSimpleQueue" />
+            app:destination="@+id/frSelectedStoreSimpleQueue" />
         <action
             android:id="@+id/action_userSelectedStoreFragment_to_userSelectedStoreAdvancedQueue"
-            app:destination="@+id/userSelectedStoreAdvancedQueue" />
+            app:destination="@+id/frSelectedStoreAdvancedQueue" />
     </fragment>
     <fragment
-        android:id="@+id/userFilteredCategoryFragment"
-        android:name="com.ontime.app.views.userFilteredCategoryFragment"
-        android:label="user_filtered_category_fragment"
-        tools:layout="@layout/user_filtered_category_fragment">
+        android:id="@+id/frFilteredCategory"
+        android:name="com.ontime.app.features.filteredCategory.FrFilteredCategory"
+        android:label="fr_filtered_category"
+        tools:layout="@layout/fr_filtered_category">
         <action
-            android:id="@+id/action_userFilteredCategoryFragment_to_userSelectedStoreFragment"
-            app:destination="@+id/userSelectedStoreFragment" />
+            android:id="@+id/action_frFilteredCategory_to_frSelectedStore"
+            app:destination="@+id/frSelectedStore" />
     </fragment>
     <fragment
-        android:id="@+id/userSelectedStoreSimpleQueue"
-        android:name="com.ontime.app.views.userSelectedStoreSimpleQueue"
-        android:label="user_selected_store_simple_queue_fragment"
-        tools:layout="@layout/user_selected_store_simple_queue_fragment">
+        android:id="@+id/frSelectedStoreSimpleQueue"
+        android:name="com.ontime.app.features.selectedStore.simpleQueue.FrSelectedStoreSimpleQueue"
+        android:label="fr_selected_store_simple_queue"
+        tools:layout="@layout/fr_selected_store_simple_queue">
         <action
-            android:id="@+id/action_userSelectedStoreSimpleQueue_to_userBookingConfirmedFragment"
-            app:destination="@+id/userBookingConfirmedFragment" />
+            android:id="@+id/action_frSelectedStoreSimpleQueue_to_frBookingConfirmed"
+            app:destination="@+id/frBookingConfirmed" />
     </fragment>
     <fragment
-        android:id="@+id/userSelectedStoreAdvancedQueue"
-        android:name="com.ontime.app.views.userSelectedStoreAdvancedQueue"
-        android:label="user_selected_store_advanced_queue_fragment"
-        tools:layout="@layout/user_selected_store_advanced_queue_fragment">
+        android:id="@+id/frSelectedStoreAdvancedQueue"
+        android:name="com.ontime.app.features.selectedStore.advancedQueue.FrSelectedStoreAdvancedQueue"
+        android:label="fr_selected_store_advanced_queue"
+        tools:layout="@layout/fr_selected_store_advanced_queue">
         <action
-            android:id="@+id/action_userSelectedStoreAdvancedQueue_to_userBookingConfirmedFragment"
-            app:destination="@+id/userBookingConfirmedFragment" />
+            android:id="@+id/action_frSelectedStoreAdvancedQueue_to_frBookingConfirmed"
+            app:destination="@+id/frBookingConfirmed" />
     </fragment>
     <fragment
-        android:id="@+id/userBookingConfirmedFragment"
-        android:name="com.ontime.app.views.userBookingConfirmedFragment"
-        android:label="user_booking_confirmed_fragment"
-        tools:layout="@layout/user_booking_confirmed_fragment">
+        android:id="@+id/frBookingConfirmed"
+        android:name="com.ontime.app.features.bookings.bookingConfirmed.FrBookingConfirmed"
+        android:label="fr_booking_confirmed"
+        tools:layout="@layout/fr_booking_confirmed">
         <action
-            android:id="@+id/action_userBookingConfirmedFragment_to_userRateStoreFragment"
-            app:destination="@+id/userRateStoreFragment" />
+            android:id="@+id/action_frBookingConfirmed_to_frRateStore"
+            app:destination="@+id/frRateStore" />
     </fragment>
     <fragment
-        android:id="@+id/userRateStoreFragment"
-        android:name="com.ontime.app.views.userRateStoreFragment"
-        android:label="user_rate_store_fragment"
-        tools:layout="@layout/user_rate_store_fragment">
+        android:id="@+id/frRateStore"
+        android:name="com.ontime.app.features.rateStore.FrRateStore"
+        android:label="fr_rate_store"
+        tools:layout="@layout/fr_rate_store">
         <action
-            android:id="@+id/action_userRateStoreFragment_to_userMainFragment"
-            app:destination="@+id/userMainFragment" />
+            android:id="@+id/action_frRateStore_to_frHome"
+            app:destination="@+id/frHome" />
     </fragment>
     <activity
         android:id="@+id/userMainActivity"
-        android:name="com.ontime.app.views.UserMainActivity"
+        android:name="com.ontime.app.activities.UserMainActivity"
         android:label="activity_user_main"
         tools:layout="@layout/activity_user_main" />
     <fragment
-        android:id="@+id/registerInfoFragment"
-        android:name="com.ontime.app.views.auth.RegisterInfoFragment"
-        android:label="register_info_fragment"
-        tools:layout="@layout/register_info_fragment" >
+        android:id="@+id/frRegisterInfo"
+        android:name="com.ontime.app.features.auth.register.FrRegisterInfo"
+        android:label="fr_register_info"
+        tools:layout="@layout/fr_register_info">
         <action
-            android:id="@+id/action_registerInfoFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_frRegisterInfo_to_frLogin"
+            app:destination="@id/frLogin" />
     </fragment>
 </navigation>
