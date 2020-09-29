@@ -1,6 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/login"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".fr_add_client_to_row"
+tools:ignore="ExtraText">
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="39dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDescFila"
+        app:layout_constraintStart_toStartOf="@+id/tvDescFila" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="63dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDescFila"
+        app:layout_constraintStart_toStartOf="@+id/tvDescFila" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvDescFila"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="346dp"
+        android:layout_height="142dp"
+        android:hint="@string/tvDescripcion"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="141dp">
+
+            <TextView
+                android:id="@+id/tvAgregarFila2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="212dp"
+                android:text="Grupo de 2"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="110dp"
+                android:layout_height="53dp"
+                android:layout_marginEnd="4dp"
+                android:text="Reservar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="40dp"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="28dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginBottom="40dp"
+                android:src="@android:drawable/ic_lock_idle_alarm"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvNombreFila"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Ej. Juan Perez"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editNombreFila"
+            android:layout_width="168dp"
+            android:layout_height="36dp"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".com.addClient.commerceAddClientToRowFragment" />
+    android:layout_height="0dp"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="?attr/actionBarTheme"
+    app:layout_constraintBottom_toTopOf="@+id/guideline7"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+
+<TextView
+    android:id="@+id/tvMisFilas"
+    android:layout_width="178dp"
+    android:layout_height="wrap_content"
+    android:text="Agregar a la fila"
+    android:textColor="#FFF"
+    android:textSize="25dp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+    app:layout_constraintStart_toStartOf="@+id/guideline9"
+    app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+<TextView
+    android:id="@+id/tvAgregarFila"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Reservar un lugar para:"
+    android:textColor="?attr/colorPrimary"
+    android:textSize="25dp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toTopOf="@+id/guideline"
+    app:layout_constraintStart_toStartOf="@+id/guideline5"
+    app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.18" />
+
+<ImageView
+    android:id="@+id/imageView4"
+    android:layout_width="45dp"
+    android:layout_height="48dp"
+    android:src="@drawable/ontime_logo_black"
+    app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+    app:layout_constraintEnd_toStartOf="@+id/tvMisFilas"
+    app:layout_constraintStart_toStartOf="@+id/guideline5"
+    app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+<androidx.constraintlayout.widget.Barrier
+    android:id="@+id/barrier"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:barrierDirection="left" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.38" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.28" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0729927"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.08" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline8"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.48" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline9"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.20" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.58" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline11"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.68" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline12"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintGuide_percent="0.80" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline13"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.78" />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/guideline15"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.88" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
