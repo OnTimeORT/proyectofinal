@@ -5,17 +5,18 @@
     android:id="@+id/step_register_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.auth.comerceRegisterFragment">
+    tools:context=".views.auth.RegisterInfoFragment">
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Nombre del comercio"
+        android:hint="Nombre"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/emailEditText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,21 +29,11 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/categorySpinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
-
-    <Spinner
-        android:id="@+id/categorySpinner"
-        android:layout_width="217dp"
-        android:layout_height="33dp"
-        android:backgroundTint="#D1C0C0"
-        android:hint="Categorías"
         app:layout_constraintBottom_toTopOf="@+id/phoneEditText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
     <EditText
         android:id="@+id/phoneEditText"
@@ -51,31 +42,20 @@
         android:ems="10"
         android:hint="Teléfono"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/cuitEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
-
-    <EditText
-        android:id="@+id/cuitEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="CUIT"
-        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/btnCompleteRegister"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
     <Button
         android:id="@+id/btnCompleteRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Registrarme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cuitEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

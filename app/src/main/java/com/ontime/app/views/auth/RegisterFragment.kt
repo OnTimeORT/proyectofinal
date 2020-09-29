@@ -74,7 +74,7 @@ class RegisterFragment : Fragment() {
 
 
                     Navigation.findNavController(v)
-                        .navigate(R.id.action_registerFragment_to_comerceRegisterFragment)
+                        .navigate(R.id.action_registerFragment_to_registerInfoFragment)
                 }
             }
         )

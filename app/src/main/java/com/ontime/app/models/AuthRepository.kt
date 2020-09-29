@@ -95,43 +95,25 @@ class AuthRepository(var application: Application) {
             }
     }
 
-    fun updateProfileCommerce(userId: String, name: String, category: String, phone: String, cuit: String){
+    fun updateProfileUser(userId: String, name: String, phone: String){
 
-        val storeData = Commerce(name,category,phone, cuit, null)
+        val userData = User(name,phone,null)
 
-        db.collection("stores").document(userId)
-            .set(storeData)
+        db.collection("users").document(userId)
+            .set(userData)
             .addOnSuccessListener {
-                Log.d("El comercio fue almacenado en la bd", "DocumentSnapshot successfully written!")
+                Log.d("El usuario fue almacenado en la bd", "DocumentSnapshot successfully written!")
                 Toast.makeText(
-                    application.applicationContext, "El comercio se registro con éxito",
+                    application.applicationContext, "El usuario se registro con éxito",
                     Toast.LENGTH_SHORT
                 ).show()
             }
             .addOnFailureListener {
-                    e -> Log.w("El comercio no se pudo registrar", "Error writing document", e)
+                    e -> Log.w("El usuario no se pudo registrar", "Error writing document", e)
                 Toast.makeText(
-                    application.applicationContext, "El comercio no se pudo registrar",
+                    application.applicationContext, "El usuario no se pudo registrar",
                     Toast.LENGTH_SHORT
                 ).show()}
-    }
-
-    fun getCategories() : ArrayList<String> {
-
-        var categories : ArrayList<String> = arrayListOf()
-        categories.add("Seleccionar categoría")
-
-        db.collection("categories").get()
-            .addOnSuccessListener { result ->
-
-                for(category in result){
-                    category.getString("name")?.let { categories.add(it) }
-                  }
-                }
-            .addOnFailureListener {
-                    e -> Log.w("No se pudo acceder a las categorias", "Error getting document", e)
-                }
-        return categories
     }
 
 }
