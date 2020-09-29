@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".com.addRow.commerceAddRowFragment"
+    tools:ignore="ExtraText">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHorarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:text="@string/tvHorarios"
+        android:textColor="#FFF"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/tvTipoTurnos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/tvTipoTurnos"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    
+    <TextView
+        android:id="@+id/tvTurnos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/tvTurnos"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTipoTurnos" />
+
+    <Button
+        android:id="@+id/btnFijos"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/btnFijos"
+        app:layout_constraintTop_toBottomOf="@id/tvTipoTurnos"
+        app:layout_constraintStart_toEndOf="@+id/tvTurnos"
+        android:layout_marginTop="50dp"
+        />
+
+    <Button
+        android:id="@+id/btnVariables"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/btnVariables"
+        app:layout_constraintTop_toBottomOf="@id/tvTipoTurnos"
+        app:layout_constraintStart_toEndOf="@+id/btnFijos"
+        android:layout_marginTop="50dp"
+        />
+    
+    <TextView
+        android:id="@+id/tvDuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/tvDuracion"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTurnos" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvHastaHs"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+
+        android:hint="00"
+        app:layout_constraintTop_toBottomOf="@+id/tvTurnos"
+        app:layout_constraintStart_toEndOf="@+id/tvDuracion"
+        android:layout_marginTop="40dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editHastaHs"
+            android:ems="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvDosPuntosH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:text=":"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/tvHastaHs"
+        app:layout_constraintTop_toBottomOf="@+id/tvTurnos" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvHastaMin"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
+
+        android:hint="00"
+        app:layout_constraintTop_toBottomOf="@+id/tvTurnos"
+        app:layout_constraintStart_toEndOf="@id/tvDosPuntosH"
+        android:layout_marginTop="40dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editHastaMin"
+            android:ems="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/tvHorasH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:text="hs"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/tvHastaMin"
+        app:layout_constraintTop_toBottomOf="@id/tvTurnos" />
+
+    <Button
+        android:id="@+id/btnContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnContinuar"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
